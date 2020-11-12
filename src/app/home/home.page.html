@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title> Cartelera </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Últimas películas</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-slides>
+                    <ion-slide *ngFor="let movie of movies">
+                        <div *ngIf="moviesslideshow.length > 0">
+                            <ion-img (click)="onMovieClick(movie)" class="center" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}"></ion-img>
+
+                            <div class="movie-description">
+                                <h3>{{ movie.title }}</h3>
+                                <p>{{ movie.overview | slice: 0:130 }}</p>
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <!-- <ion-slide>
+            <img src="./slide-4.png" />
+            <h2>Ready to Play?</h2>
+            <ion-button fill="clear">Continue
+                <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-button>
+        </ion-slide> -->
+                </ion-slides>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h1 class="mt-5">Últimas películas</h1>
+                <app-peliculas-poster-grid [movies]="movies" *ngIf="movies.length > 0"></app-peliculas-poster-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

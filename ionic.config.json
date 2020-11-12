@@ -1,0 +1,11 @@
+{
+  "name": "ionicpelis",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "0a436f00"
+}
